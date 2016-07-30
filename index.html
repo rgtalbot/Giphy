@@ -4,21 +4,10 @@
 <head>
     <meta charset="utf-8">
     <title>Giphy Search</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <style>
-        iframe {
-            width: 600px;
-            height: 480px;
-        }
-        .search {
-            background-color: #00B7FF;
-            color: white;
-        }
-        .search:hover {
-            background-color: #2db34a;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
@@ -28,23 +17,7 @@
 <div class="search btn" data-query="debate">Debate</div>
 <div id="results"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script>
-    $(".search").on('click', function() {
-        var search = $(this).data('query');
-        $.ajax({url: "http://api.giphy.com/v1/gifs/search",
-        data: {
-            limit: 20,
-            api_key: "dc6zaTOxFJmzC",
-            q: search
-        }, method: 'GET'})
-                .done(function(response) {
-                    $('#results').empty();
-                    $.each(response.data, function (key, gif) {
-                        $('#results').append('<iframe src ="'+gif.embed_url+'",/>');
-                    })
-                });
-    });
-</script>
+<script src="assets/javascript/app.js"></script>
 </body>
 
 </html>
