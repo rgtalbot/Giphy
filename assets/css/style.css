@@ -1,6 +1,9 @@
-iframe {
+img {
+    height: 400px;
     width: 400px;
-    height: 280px;
+    min-width: 200px;
+    min-height: 200px;
+    float: left;
 }
 .search {
     background-color: #00B7FF;
@@ -8,4 +11,8 @@ iframe {
 }
 .search:hover {
     background-color: #2db34a;
+}
+
+button, div, form, input {
+    margin: 10px;
 }

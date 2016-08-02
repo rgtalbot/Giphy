@@ -11,10 +11,13 @@
 </head>
 
 <body>
-<div class="search btn" data-query="trump">Trump</div>
-<div class="search btn" data-query="hillary">Hillary</div>
-<div class="search btn" data-query="election">Election</div>
-<div class="search btn" data-query="debate">Debate</div>
+<div id="buttonView"></div>
+<form id="gif-form">
+    <label for="gif-input">Add another search</label>
+    <input type="text" id="gif-input"><br>
+
+    <input id="addGIF" type="submit" value="Add">
+</form>
 <div id="results"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="assets/javascript/app.js"></script>
