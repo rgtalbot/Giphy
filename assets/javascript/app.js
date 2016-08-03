@@ -7,14 +7,18 @@ $(document).ready(function () {
         $('#buttonView').empty();
         $.each(array, function (index, value) {
             var addedButton = $('<button>')
-                .addClass('search btn btn-primary')
-                .attr('data-name', value)
+                .addClass('search btn')
+                .data('name', value)
                 .html(value);
             $('#buttonView').append(addedButton);
         });
     }
 
-    function displayGIF() {
+    $('.btn').click(function() {
+        alert('working');
+    });
+
+    $('.search').on('click', function() {
         console.log('working');
         var search = $(this).data('name');
         $.ajax({
@@ -26,15 +30,39 @@ $(document).ready(function () {
             }, method: 'GET'
         })
             .done(function (response) {
+                console.log(response);
                 $('#results').empty();
-                $.each(response.data, function (key, gif) {
+                var test = response.data;
+                $.each(test, function (index, value) {
+
+                    var $div = $('<div class="item">');
+                    var rating = test[index].rating;
+
+                    var p = $('<p>').text("Rating: " + rating).appendTo($div);
                     var displayImage = $('<img>')
-                    .addClass('image')
-                        .attr('src', gif.images.original.url);
-                    $('#results').append(displayImage);
+                        .addClass('seinfeld')
+                        .attr('src', test[index].images.fixed_height_still.url)
+                        .data('still', test[index].images.fixed_height_still.url)
+                        .data('animate', test[index].images.fixed_height.url)
+                        .data('state', 'still')
+                        .appendTo($div);
+                    $div.appendTo('#results');
                 })
             });
-    }
+    });
+
+    $('.seinfeld').on('click', function() {
+        console.log('working');
+        var $state = $(this).data('state');
+
+        if ($state === 'still') {
+            $(this).attr(src, $(this).data('animate'));
+            $(this).data('state', 'aniamted');
+        } else {
+            $(this).attr(src, $(this).data('still'));
+            $(this).data('state', 'still');
+        }
+    });
 
     $('#addGIF').on('click', function() {
         var textInput = $('#gif-input').val();
@@ -44,8 +72,8 @@ $(document).ready(function () {
         }
         $('#gif-input').val("");
         return false;
-    })
-    $(document).on('click', '.search', displayGIF);
+    });
+
 
     renderButtons();
 });

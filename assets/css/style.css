@@ -1,8 +1,8 @@
 img {
-    height: 400px;
-    width: 400px;
-    min-width: 200px;
-    min-height: 200px;
+    /*height: 400px;*/
+    /*width: 400px;*/
+    /*min-width: 200px;*/
+    /*min-height: 200px;*/
     float: left;
 }
 .search {
@@ -15,4 +15,8 @@ img {
 
 button, div, form, input {
     margin: 10px;
+}
+
+.item {
+    width: 200px;
 }
