@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    var array = ["Jerry", "Costanza", "Elaine", "Kramer"];
+    var array = ["Jerry", "Costanza", "Elaine", "Kramer", "Newman", "Festivus"];
 
     function renderButtons() {
         $('#buttonView').empty();
@@ -9,17 +9,16 @@ $(document).ready(function () {
             var addedButton = $('<button>')
                 .addClass('search btn')
                 .data('name', value)
-                .html(value);
+                .html(value)
+                .on('click', displayGIF)
             $('#buttonView').append(addedButton);
         });
     }
 
-    $('.btn').click(function() {
-        alert('working');
-    });
+    renderButtons();
 
-    $('.search').on('click', function() {
-        console.log('working');
+    function displayGIF() {
+
         var search = $(this).data('name');
         $.ajax({
             url: "https://api.giphy.com/v1/gifs/search",
@@ -30,7 +29,7 @@ $(document).ready(function () {
             }, method: 'GET'
         })
             .done(function (response) {
-                console.log(response);
+
                 $('#results').empty();
                 var test = response.data;
                 $.each(test, function (index, value) {
@@ -42,27 +41,28 @@ $(document).ready(function () {
                     var displayImage = $('<img>')
                         .addClass('seinfeld')
                         .attr('src', test[index].images.fixed_height_still.url)
-                        .data('still', test[index].images.fixed_height_still.url)
-                        .data('animate', test[index].images.fixed_height.url)
-                        .data('state', 'still')
-                        .appendTo($div);
+                        .attr('data-still', test[index].images.fixed_height_still.url)
+                        .attr('data-animate', test[index].images.fixed_height.url)
+                        .attr('data-state', 'still')
+                        .on('click', playGIF);
+                    displayImage.appendTo($div);
                     $div.appendTo('#results');
                 })
             });
-    });
+    }
 
-    $('.seinfeld').on('click', function() {
-        console.log('working');
+    function playGIF() {
+
         var $state = $(this).data('state');
 
         if ($state === 'still') {
-            $(this).attr(src, $(this).data('animate'));
+            $(this).attr('src', $(this).data('animate'));
             $(this).data('state', 'aniamted');
         } else {
-            $(this).attr(src, $(this).data('still'));
+            $(this).attr('src', $(this).data('still'));
             $(this).data('state', 'still');
         }
-    });
+    }
 
     $('#addGIF').on('click', function() {
         var textInput = $('#gif-input').val();
@@ -75,5 +75,5 @@ $(document).ready(function () {
     });
 
 
-    renderButtons();
+
 });

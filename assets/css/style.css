@@ -3,7 +3,8 @@ img {
     /*width: 400px;*/
     /*min-width: 200px;*/
     /*min-height: 200px;*/
-    float: left;
+    max-width: 300px;
+
 }
 .search {
     background-color: #00B7FF;
@@ -18,5 +19,7 @@ button, div, form, input {
 }
 
 .item {
-    width: 200px;
+    width: 300px;
+    height: 300px;
+    float: left;
 }
