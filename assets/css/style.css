@@ -1,9 +1,10 @@
-img {
-    /*height: 400px;*/
-    /*width: 400px;*/
-    /*min-width: 200px;*/
-    /*min-height: 200px;*/
-    max-width: 300px;
+
+body {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.seinfeld {
+    max-width: 160px;
 
 }
 .search {
@@ -19,7 +20,21 @@ button, div, form, input {
 }
 
 .item {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 250px;
+    text-align: center;
+    border: 2px solid grey;
     float: left;
+}
+
+.rating {
+    font-size: 20px;
+    color: blue;
+    padding: 5px;
+    font-family: Helvetica;
+}
+
+#results {
+    max-width: 960px;
+    margin: 0 auto;
 }
