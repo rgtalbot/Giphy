@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // Initial array of names for the buttons
-    var array = ["Jerry", "Costanza", "Elaine", "Kramer", "Newman", "Festivus"];
+    var array = ["Jerry", "Costanza", "Elaine", "Kramer"];
 
     //function to convert any button to proper title case
     function titleCase(str) {
