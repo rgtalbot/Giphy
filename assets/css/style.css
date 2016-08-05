@@ -53,6 +53,20 @@ div {
     border-radius: 10px;
 }
 
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+    .item {
+        width: 160px;
+        height: 120px;
+    }
+    .avengers {
+        max-width: 120px;
+        max-height: 70px;
+    }
+}
+
 .rating {
     font-size: 20px;
     color: #ac2925;
