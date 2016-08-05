@@ -2,6 +2,7 @@
     font-family: 'avengers';
     src: url(../font/avengers.ttf) format(truetype);
 }
+
 body {
     background: url("../images/background.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -9,10 +10,12 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
+
 .wrapper, .headerContent {
     max-width: 1170px;
     margin: 0 auto;
 }
+
 h1 {
     font-family: 'avengers';
     font-size: 90px;
@@ -24,8 +27,8 @@ h1 {
 .search {
     background-color: #00B7FF;
     color: white;
-
 }
+
 .search:hover {
     background-color: #2db34a;
 }
@@ -42,12 +45,13 @@ div, input {
     background: #00B7FF;
     border-radius: 5px;
 }
+
 .avengers {
     max-width: 220px;
     max-height: 140px;
-border-radius: 10px;
-
+    border-radius: 10px;
 }
+
 .rating {
     font-size: 20px;
     color: #ac2925;
