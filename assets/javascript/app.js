@@ -94,8 +94,18 @@ $(document).ready(function () {
     }
 
     //adds new buttons when a user submits them
-    $('#addGIF').on('click', function () {
+    $('#addGIF').on('click', addGIF);
+    $('body').keyup(function (e) {
+        if (e.keyCode == 13) {
+            if ($('#gif-input').val() != "") {
+                addGIF();
+            }
+        }
+    });
+
+    function addGIF() {
         var textInput = $('#gif-input').val();
+        console.log(textInput);
         var name = titleCase(textInput);
         if (textInput != "") {
             array.push(name);
@@ -103,7 +113,7 @@ $(document).ready(function () {
         }
         $('#gif-input').val("");
         return false;
-    });
+    }
 
 
 });
