@@ -1,40 +1,68 @@
-
+@font-face {
+    font-family: 'avengers';
+    src: url(../font/avengers.ttf) format(truetype);
+}
 body {
+    background: url("../images/background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.wrapper, .headerContent {
     max-width: 1170px;
     margin: 0 auto;
 }
-.seinfeld {
-    max-width: 260px;
-
+h1 {
+    font-family: 'avengers';
+    font-size: 90px;
+    text-align: center;
+    color: #ac2925;
+    margin-top: 50px;
 }
+
 .search {
     background-color: #00B7FF;
     color: white;
+
 }
 .search:hover {
     background-color: #2db34a;
 }
 
-button, div, form, input {
+div, input {
     margin: 10px;
 }
 
 .item {
-    width: 300px;
-    height: 300px;
+    width: 260px;
+    height: 220px;
     text-align: center;
-    border: 2px solid grey;
     float: left;
+    background: #00B7FF;
+    border-radius: 5px;
 }
+.avengers {
+    max-width: 220px;
+    max-height: 140px;
+border-radius: 10px;
 
+}
 .rating {
     font-size: 20px;
-    color: blue;
+    color: #ac2925;
     padding: 5px;
-    font-family: Helvetica;
+    font-family: 'avengers';
+    margin: 5px;
 }
 
 #results {
-    max-width: 960px;
     margin: 0 auto;
 }
+
+.add {
+    max-width: 200px;
+}
+
+
+

@@ -1,16 +1,16 @@
 $(document).ready(function () {
 
     // Initial array of names for the buttons
-    var array = ["Jerry", "Costanza", "Elaine", "Kramer"];
+    var array = ["Captain America", "Iron Man", "The Hulk", "Thor", "Loki", "Hawkeye", "Black Widow", "Nick Fury"];
 
     //function to convert any button to proper title case
     function titleCase(str) {
         var test = str.split(' ');
-        $.each(test, function(ind, value) {
-          var string = test[ind];
+        $.each(test, function (ind, value) {
+            var string = test[ind];
             var upCase = string.charAt(0).toUpperCase();
-            var restWord = string.slice(1,string.length).toLowerCase();
-            test[ind]=upCase.concat(restWord);
+            var restWord = string.slice(1, string.length).toLowerCase();
+            test[ind] = upCase.concat(restWord);
         })
         str = test.join(' ');
         return str;
@@ -25,7 +25,7 @@ $(document).ready(function () {
                 .data('name', value)
                 .html(value)
                 .on('click', displayGIF);
-            $('#buttonView').append(addedButton);
+            addedButton.appendTo("#buttonView");
         });
     }
 
@@ -41,11 +41,10 @@ $(document).ready(function () {
             data: {
                 limit: 15,
                 api_key: "dc6zaTOxFJmzC",
-                q: search + '+seinfeld'
+                q: search + '+avengers'
             }, method: 'GET'
         })
             .done(function (response) {
-
                 $('#results').empty();
                 var test = response.data;
                 $.each(test, function (index, value) {
@@ -53,18 +52,26 @@ $(document).ready(function () {
                     var $div = $('<div class="item">');
                     var rating = test[index].rating;
 
-                    var p = $('<p>')
-                        .text("Rating: " + rating.toUpperCase())
-                        .addClass('rating')
-                        .appendTo($div);
+                    if (rating == '') {
+                        var p = $('<p>')
+                            .text('No Rating')
+                            .addClass('rating')
+                            .appendTo($div);
+                    } else {
+
+                        var p = $('<p>')
+                            .text("Rating: " + rating.toUpperCase())
+                            .addClass('rating')
+                            .appendTo($div);
+                    }
                     var displayImage = $('<img>')
-                        .addClass('seinfeld')
+                        .addClass('avengers')
                         .attr('src', test[index].images.fixed_height_still.url)
                         .attr('data-still', test[index].images.fixed_height_still.url)
                         .attr('data-animate', test[index].images.fixed_height.url)
                         .attr('data-state', 'still')
                         .on('click', playGIF)
-                        // .gifplayer();
+                    // .gifplayer();
                     displayImage.appendTo($div);
                     $div.appendTo('#results');
                 })
@@ -87,7 +94,7 @@ $(document).ready(function () {
     }
 
     //adds new buttons when a user submits them
-    $('#addGIF').on('click', function() {
+    $('#addGIF').on('click', function () {
         var textInput = $('#gif-input').val();
         var name = titleCase(textInput);
         if (textInput != "") {
@@ -97,7 +104,6 @@ $(document).ready(function () {
         $('#gif-input').val("");
         return false;
     });
-
 
 
 });

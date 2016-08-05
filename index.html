@@ -7,23 +7,39 @@
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!--<script type="text/javascript" src="assets/javascript/jquery.gifplayer.js"></script>-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" type="text/css" href="assets/css/gifplayer.css">-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
-<div id="buttonView"></div>
-<form id="gif-form">
-    <label for="gif-input">Add another search</label>
-    <input type="text" id="gif-input"><br>
 
-    <input id="addGIF" type="submit" value="Add">
-</form>
-<div id="results"></div>
+<div class="header">
+    <div class="headerContent">
+        <h1>Avengers GIPHY Search</h1>
+    </div>
+</div>
+<div class="wrapper">
+
+<div class="row">
+    <div class="text-center col-sm-9">
+
+        <div id="results"></div>
+    </div>
+    <div class="add col-sm-3">
+        <form id="gif-form" class="input-group">
+            <input type="text" id="gif-input" class="form-control" placeholder="Search for ...">
+            <span cass="input-group-btn">
+        <input id="addGIF" type="submit" class="btn btn-default" value="Add">
+        </span>
+        </form>
+        <div id="buttonView" class="btn-group-lg btn-group-vertical"></div>
+    </div>
+</div>
+</div>
 
 <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>
+
+
