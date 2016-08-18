@@ -1,6 +1,7 @@
 @font-face {
-    font-family: 'avengers';
-    src: url(../font/avengers.ttf) format(truetype);
+    font-family: 'Avengers';
+    src: url('../font/avengers.ttf') format('truetype'),
+        url('../font/avengers.otf') format('opentype');
 }
 
 body {
@@ -16,8 +17,8 @@ body {
     margin: 0 auto;
 }
 
-h1 {
-    font-family: 'avengers';
+h1   {
+    font-family: 'Avengers', Times;
     font-size: 90px;
     text-align: center;
     color: #ac2925;
@@ -36,6 +37,7 @@ h1 {
 
 div {
     margin: 10px;
+    box-sizing: border-box;
 }
 
 .item {
@@ -51,20 +53,6 @@ div {
     max-width: 220px;
     max-height: 140px;
     border-radius: 10px;
-}
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 36px;
-    }
-    .item {
-        width: 160px;
-        height: 120px;
-    }
-    .avengers {
-        max-width: 120px;
-        max-height: 70px;
-    }
 }
 
 .rating {
@@ -87,5 +75,19 @@ div.input-group {
     min-width: 168px;
 }
 
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
 
+    .item {
+        width: 160px;
+        height: 120px;
+    }
+
+    .avengers {
+        max-width: 120px;
+        max-height: 70px;
+    }
+}
 

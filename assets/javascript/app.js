@@ -11,7 +11,7 @@ $(document).ready(function () {
             var upCase = string.charAt(0).toUpperCase();
             var restWord = string.slice(1, string.length).toLowerCase();
             test[ind] = upCase.concat(restWord);
-        })
+        });
         str = test.join(' ');
         return str;
     }
@@ -70,7 +70,7 @@ $(document).ready(function () {
                         .attr('data-still', test[index].images.fixed_height_still.url)
                         .attr('data-animate', test[index].images.fixed_height.url)
                         .attr('data-state', 'still')
-                        .on('click', playGIF)
+                        .on('click', playGIF);
                     // .gifplayer();
                     displayImage.appendTo($div);
                     $div.appendTo('#results');
